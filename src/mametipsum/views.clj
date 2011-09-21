@@ -8,7 +8,8 @@
 (defn mametipsum-index-view []
   (html5
    [:head
-    [:title "mametipsum"]]
+    [:title "mametipsum"]
+    (include-css "/css/site.css")]
    [:body
     [:h1 "Always Be Closing!"]
     [:p
