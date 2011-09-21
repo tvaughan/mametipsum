@@ -1,1 +1,1 @@
-web: lein run -m mametipsum.web
+web: lein run -m mametipsum.core
