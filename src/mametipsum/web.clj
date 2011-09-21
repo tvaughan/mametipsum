@@ -1,19 +1,14 @@
 (ns mametipsum.web
-  (:use ring.adapter.jetty)
-  (:use compojure.core)
-  (:require [compojure.route :as route]
-            [compojure.handler :as handler])
-  (:import java.util.Date java.text.SimpleDateFormat))
-
-(defroutes mametipsum-routes
-  (GET "/" [] (str
-               "<h2>Put that coffee down!</h2> The current time is "
-               (.format (SimpleDateFormat. "HH:mm:ss") (Date.)) "."))
-  (route/resources "/")
-  (route/not-found "404"))
+  (:require
+   [compojure.handler :as handler])
+  (:use
+   [ring.adapter.jetty]
+   [hiccup.middleware :only (wrap-base-url)]
+   [mametipsum.routes :only (mametipsum-routes)]))
 
 (def app
-  (handler/site mametipsum-routes))
+  (-> (handler/site mametipsum-routes)
+      (wrap-base-url)))
 
 (defn -main []
   (let [port (Integer/parseInt (System/getenv "PORT"))]
