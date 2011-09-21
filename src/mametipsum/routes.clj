@@ -1,11 +1,11 @@
 (ns mametipsum.routes
-  (:use compojure.core)
-  (:require [compojure.route :as route])
-  (:import java.util.Date java.text.SimpleDateFormat))
+  (:use
+   [compojure.core]
+   [mametipsum.views])
+  (:require
+   [compojure.route :as route]))
 
 (defroutes mametipsum-routes
-  (GET "/" [] (str
-               "<h2>Put that coffee down!</h2> The current time is "
-               (.format (SimpleDateFormat. "HH:mm:ss") (Date.)) "."))
+  (GET "/" [] (mametipsum-index-view))
   (route/resources "/")
   (route/not-found "404"))
