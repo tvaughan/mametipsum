@@ -8,8 +8,7 @@
    [compojure.handler :as handler]))
 
 (def mametipsum-app
-  (-> (handler/site mametipsum-routes)
-      (wrap-base-url)))
+  (wrap-base-url (handler/site mametipsum-routes)))
 
 (defn -main []
   (init-db)
