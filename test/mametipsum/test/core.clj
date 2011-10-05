@@ -1,6 +1,7 @@
 (ns mametipsum.test.core
-  (:use [mametipsum.core])
-  (:use [clojure.test]))
+  (:use [clojure.test])
+  (:use [mametipsum.db]))
 
-(deftest replace-me ;; FIXME: write
-  (is false "No tests have been written."))
+(deftest test-mametipsum-db
+  (let [script (init-db)]
+    (is (= (count (first script)) 1331))))
