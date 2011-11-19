@@ -1,16 +1,16 @@
 (ns mametipsum.core
-  (:use
-   [ring.adapter.jetty]
-   [hiccup.middleware :only (wrap-base-url)]
-   [mametipsum.db]
-   [mametipsum.routes])
   (:require
-   [compojure.handler :as handler]))
+   [ring.adapter.jetty :as jetty]
+   [compojure.handler :as handler]
+   [mametipsum.db :as db]
+   [mametipsum.routes :as routes])
+  (:use
+   [hiccup.middleware :only (wrap-base-url)]))
 
-(def mametipsum-app
-  (wrap-base-url (handler/site mametipsum-routes)))
+(def app
+  (wrap-base-url (handler/site routes/main-routes)))
 
 (defn -main []
-  (init-db)
+  (db/init)
   (let [port (Integer/parseInt (get (System/getenv) "PORT" "8080"))]
-    (run-jetty mametipsum-app {:port port})))
+    (jetty/run-jetty app {:port port})))

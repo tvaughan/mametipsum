@@ -1,15 +1,15 @@
 (ns mametipsum.views
-  (:use
-   [hiccup core page-helpers])
   (:import
    java.util.Date
-   java.text.SimpleDateFormat))
+   java.text.SimpleDateFormat)
+  (:require
+   [hiccup.page-helpers :as page-helpers]))
 
-(defn mametipsum-index-view []
-  (html5
+(defn home []
+  (page-helpers/html5
    [:head
     [:title "mametipsum"]
-    (include-css "/css/site.css")]
+    (page-helpers/include-css "/css/site.css")]
    [:body
     [:h1 "Always Be Closing!"]
     [:p

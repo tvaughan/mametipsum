@@ -12,7 +12,7 @@
 (defn remove-directories [list]
   (remove #(.isDirectory %) list))
 
-(defn init-db []
+(defn init []
   (for [file-name (remove-directories
                    (file-seq (clojure.java.io/file "db")))]
     (parse file-name)))
