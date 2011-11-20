@@ -4,6 +4,12 @@
   (:use
    [clojure.test]))
 
-(deftest test-init-db
-  (let [script (db/init)]
-    (is (= (count (first script)) 1331))))
+(defn db-fixture [f]
+  (db/init)
+  (f))
+
+(use-fixtures :once db-fixture)
+
+(deftest db-testsuite
+  (let [scripts (db/list-scripts)]
+    (is (= ((first scripts) :title) "Glengarry Glen Ross"))))
