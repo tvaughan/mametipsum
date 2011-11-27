@@ -12,8 +12,8 @@
        (views/list-scripts))
   (POST "/mametipsum/:script" [script]
         (views/create-script script))
-  (GET "/mametipsum/:script" [script]
-       (views/read-script script))
+  (GET "/mametipsum/:script/:nwords" [script nwords]
+       (views/read-script script nwords))
   (PUT "/mametipsum/:script" [script]
        (views/update-script script))
   (DELETE "/mametipsum/:script" [script]
