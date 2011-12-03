@@ -33,7 +33,7 @@
        (form)]]]]))
 
 (defn list-scripts []
-  {:status 501})
+  (list-script-titles))
 
 (defn create-script [script]
   {:status 501})
