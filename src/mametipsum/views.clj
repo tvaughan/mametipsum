@@ -4,8 +4,20 @@
    [hiccup.page-helpers :as page-helpers]
    [mametipsum.db :as db]))
 
-(defn- list-script-titles []
-  (for [script (db/list-scripts)] (script :title)))
+(defn list-script-titles []
+  (db/get-script-titles (db/get-scripts)))
+
+(defn create-script [script]
+  {:status 501})
+
+(defn read-script [script nwords]
+  {:status 200})
+
+(defn update-script [script]
+  {:status 501})
+
+(defn delete-script [script]
+  {:status 501})
 
 (defn- form []
   (form-helpers/form-to {:class "form-stacked" :id "mametipsum-form"} [:post ""]
@@ -31,18 +43,3 @@
      [:div {:class "row"}
       [:div {:class "span5"}
        (form)]]]]))
-
-(defn list-scripts []
-  (list-script-titles))
-
-(defn create-script [script]
-  {:status 501})
-
-(defn read-script [script nwords]
-  {:status 200})
-
-(defn update-script [script]
-  {:status 501})
-
-(defn delete-script [script]
-  {:status 501})

@@ -10,6 +10,11 @@
 
 (use-fixtures :once db-fixture)
 
+(defn- in?
+  [seq elm]
+  (some #(= elm %) seq))
+
 (deftest db-testsuite
-  (let [scripts (db/list-scripts)]
-    (is (= ((first scripts) :title) "Glengarry Glen Ross"))))
+  (let [titles (db/get-script-titles (db/get-scripts))]
+    (is (true? (in? titles "Glengarry Glen Ross")))
+    (is (true? (in? titles "Speed the Plow")))))

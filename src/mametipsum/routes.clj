@@ -9,7 +9,7 @@
   (GET "/" []
        (views/home))
   (GET "/mametipsum" []
-       (views/list-scripts))
+       (views/list-script-titles))
   (POST "/mametipsum/:script" [script]
         (views/create-script script))
   (GET "/mametipsum/:script/:nwords" [script nwords]
