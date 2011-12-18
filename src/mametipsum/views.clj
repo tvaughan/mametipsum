@@ -1,45 +1,18 @@
 (ns mametipsum.views
   (:require
-   [hiccup.form-helpers :as form-helpers]
-   [hiccup.page-helpers :as page-helpers]
    [mametipsum.db :as db]))
 
-(defn list-script-titles []
-  (db/get-script-titles (db/get-scripts)))
+(defn list-titles []
+  (db/list-titles (db/get-scripts)))
 
-(defn create-script [script]
-  {:status 501})
+(defn create-script [title params]
+  (db/create-script (db/get-scripts) title params))
 
-(defn read-script [script nwords]
-  {:status 200})
+(defn read-script [title nwords]
+  (db/read-script (db/get-scripts) title nwords))
 
-(defn update-script [script]
-  {:status 501})
+(defn update-script [title params]
+  (db/update-script (db/get-scripts) title params))
 
-(defn delete-script [script]
-  {:status 501})
-
-(defn- form []
-  (form-helpers/form-to {:class "form-stacked" :id "mametipsum-form"} [:post ""]
-                        [:fieldset
-                         [:div {:class "clearfix"}
-                          (form-helpers/label :title "Take Words From")
-                          (form-helpers/drop-down :title (list-script-titles))]
-                         [:div {:class "clearfix"}
-                          (form-helpers/label :nwords "Total Number of Words")
-                          (form-helpers/text-field {:placeholder 0} :nwords)]
-                         [:div {:class "actions"}
-                          (form-helpers/submit-button {:class "btn"} "Let's Do This")]]))
-
-(defn home []
-  (page-helpers/html5
-   [:head
-    [:title "mametipsum"]
-    (page-helpers/include-css "http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css")
-    (page-helpers/include-js "http://code.jquery.com/jquery-1.7.min.js")
-    (page-helpers/include-js "/js/site.js")]
-   [:body
-    [:div {:class "container"}
-     [:div {:class "row"}
-      [:div {:class "span5"}
-       (form)]]]]))
+(defn delete-script [title]
+  (db/delete-script (db/get-scripts) title))

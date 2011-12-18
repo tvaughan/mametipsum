@@ -6,17 +6,15 @@
    [compojure.core]))
 
 (defroutes main-routes
-  (GET "/" []
-       (views/home))
   (GET "/mametipsum" []
-       (views/list-script-titles))
-  (POST "/mametipsum/:script" [script]
-        (views/create-script script))
-  (GET "/mametipsum/:script/:nwords" [script nwords]
-       (views/read-script script nwords))
-  (PUT "/mametipsum/:script" [script]
-       (views/update-script script))
-  (DELETE "/mametipsum/:script" [script]
-          (views/delete-script script))
+       (views/list-titles))
+  (POST "/mametipsum/:title" [title params]
+        (views/create-script title params))
+  (GET "/mametipsum/:title/:nwords" [title nwords]
+       (views/read-script title nwords))
+  (PUT "/mametipsum/:title" [title params]
+       (views/update-script title params))
+  (DELETE "/mametipsum/:title" [title]
+          (views/delete-script title))
   (route/resources "/")
   (route/not-found "404"))

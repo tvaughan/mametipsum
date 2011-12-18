@@ -6,13 +6,11 @@
    [mametipsum.routes :as routes])
   (:use
    [ring.middleware.format-params :only (wrap-restful-params)]
-   [ring.middleware.format-response :only (wrap-restful-response)]
-   [hiccup.middleware :only (wrap-base-url)]))
+   [ring.middleware.format-response :only (wrap-restful-response)]))
 
 (def app
-  (wrap-restful-params
-   (wrap-restful-response
-    (wrap-base-url (handler/site routes/main-routes)))))
+  (wrap-restful-params (wrap-restful-response
+    (handler/api routes/main-routes))))
 
 (defn -main []
   (db/init)
