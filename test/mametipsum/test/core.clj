@@ -15,6 +15,6 @@
   (some #(= elm %) seq))
 
 (deftest db-testsuite
-  (let [titles (db/get-script-titles (db/get-scripts))]
+  (let [titles (db/list-titles (db/get-scripts))]
     (is (true? (in? titles "Glengarry Glen Ross")))
     (is (true? (in? titles "Speed the Plow")))))
