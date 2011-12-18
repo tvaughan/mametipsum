@@ -8,9 +8,17 @@
    [ring.middleware.format-params :only (wrap-restful-params)]
    [ring.middleware.format-response :only (wrap-restful-response)]))
 
+(defn wrap-directory-index [subhandler]
+  (fn [req]
+    (subhandler
+     (update-in req [:uri]
+                #(if (= "/" %) "/index.html" %)))))
+
 (def app
-  (wrap-restful-params (wrap-restful-response
-    (handler/api routes/main-routes))))
+  (wrap-restful-params
+   (wrap-restful-response
+    (wrap-directory-index
+     (handler/api routes/main-routes)))))
 
 (defn -main []
   (db/init)
