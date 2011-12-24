@@ -40,8 +40,15 @@
 (defn create-script [scripts title data]
   (dosync (alter scripts assoc title data)))
 
+(defn- iter-script [script nwords]
+  (loop [i 0 current (first script) remainder (rest script) lines []]
+    (if (< i nwords)
+      (let [total (+ i (current :length))]
+        (recur total (first remainder) (rest remainder) (concat lines [(current :string)])))
+      lines)))
+
 (defn read-script [scripts title nwords]
-  (@scripts title))
+  (iter-script (scripts title) (Integer/parseInt nwords)))
 
 (defn update-script [scripts title data]
   ;; TODO:
