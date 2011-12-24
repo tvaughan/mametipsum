@@ -53,5 +53,4 @@
 (defn init []
   (let [scripts (get-scripts)]
     (doseq [blob (get-blobs)]
-      (create-script scripts (.getName blob) (add-blob blob)))
-    (print-titles scripts)))
+      (create-script scripts (.getName blob) (add-blob blob)))))
