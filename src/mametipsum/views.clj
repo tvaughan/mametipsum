@@ -8,8 +8,8 @@
 (defn create-script [title params]
   (db/create-script (db/get-scripts) title params))
 
-(defn read-script [title nwords]
-  (db/read-script (db/get-scripts) title nwords))
+(defn read-script [title nblocks nwords]
+  (db/read-script (db/get-scripts) title nblocks nwords))
 
 (defn update-script [title params]
   (db/update-script (db/get-scripts) title params))

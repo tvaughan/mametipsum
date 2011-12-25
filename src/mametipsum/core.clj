@@ -3,22 +3,11 @@
    [ring.adapter.jetty :as jetty]
    [compojure.handler :as handler]
    [mametipsum.db :as db]
-   [mametipsum.routes :as routes])
-  (:use
-   [ring.middleware.format-params :only (wrap-restful-params)]
-   [ring.middleware.format-response :only (wrap-restful-response)]))
-
-(defn wrap-directory-index [subhandler]
-  (fn [req]
-    (subhandler
-     (update-in req [:uri]
-                #(if (= "/" %) "/index.html" %)))))
+   [mametipsum.middleware :as middleware]
+   [mametipsum.routes :as routes]))
 
 (def app
-  (wrap-restful-params
-   (wrap-restful-response
-    (wrap-directory-index
-     (handler/api routes/main-routes)))))
+  (middleware/api (handler/api routes/main-routes)))
 
 (defn -main []
   (db/init)
