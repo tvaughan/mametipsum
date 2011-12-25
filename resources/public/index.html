@@ -1,54 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>mametipsum</title>
-    <link href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <script src="http://code.jquery.com/jquery-1.7.min.js" type="text/javascript"></script>
+    <meta charset="UTF-8">
+    <title>Mametipsum is the new "Hello, World!"</title>
+    <link rel="stylesheet" href="bootstrap-1.4.1.min.css">
+    <script src="jquery-1.6.1.min.js"></script>
+    <script src="ember-0.9.3.min.js"></script>
+    <script src="bootstrap-1.4.1.min.js"></script>
   </head>
   <body>
-    <script>
-    //<![CDATA[
-    <!--
-      function is_number(string) {
-        return (string.length != 0) && !isNaN(string - 0);
+    <style type="text/css">
+      body {
+      padding-top: 60px;
       }
-
-      $(document).ready(function() {
-        $.getJSON('/mametipsum', function(data) {
-          $.each(data, function(key, value) {
-            $('#title').append(new Option(value));
-          });
-        });
-
-        $("#mametipsum-form").submit(function(event) {
-          event.preventDefault();
-
-          var $nwords = $('#nwords').val();
-          if (!is_number($nwords)) {
-            $nwords = 0;
-          }
-
-          var $action = '/mametipsum/' + $("#title").val();
-          $action = $action + '/' + $nwords;
-
-          var $jqxhr = $.get(escape($action),
-            function(data) {
-              alert('SUCCESS');
-            }
-          );
-
-          $jqxhr.error(function(request, status, error) {
-            alert('FAIL');
-          });
-        });
-      });
-    //-->
-    //]]>
-    </script>
+    </style>
     <div class="container">
       <div class="row">
-        <div class="span5">
-          <form action="" class="form-stacked" id="mametipsum-form" method="POST">
+        <div class="span-one-third">
+          <form class="form-stacked">
             <fieldset>
               <div class="clearfix">
                 <label for="title">Take Words From</label>
@@ -56,37 +25,87 @@
                 </select>
               </div>
               <div class="clearfix">
-                <label for="nwords">Total Number of Words</label>
+                <label for="nblocks">Number of Blocks</label>
+                <input id="nblocks" name="nblocks" placeholder="0" type="text">
+              </div>
+              <div class="clearfix">
+                <label for="nwords">Words per Block</label>
                 <input id="nwords" name="nwords" placeholder="0" type="text">
               </div>
-              <div class="actions">
-                <input class="btn" type="submit" value="Let's Do This">
-              </div>
             </fieldset>
+            <div class="clearfix">
+              <a id="generate" href="#" class="btn primary">Generate</a>
+            </div>
           </form>
         </div>
+        <div class="span-two-thirds">
+          <ul class="tabs" data-tabs="tabs">
+            <li class="active">
+              <a href="#ipsum">Ipsum</a>
+            </li>
+            <li>
+              <a href="#template">Template</a>
+            </li>
+          </ul>
+          <div class="tab-content">
+            <div class="active tab-pane" id="ipsum">
+              <script type="text/x-handlebars">
+                <div>
+                  {{#with App.blockController}}
+                  {{#if content}}
+                  <div class="well">
+                    {{content}}
+                  </div>
+                  {{/if}}
+                  {{/with}}
+                </div>
+              </script>
+              <form class="form-stacked">
+                <fieldset>
+                  <div class="clearfix">
+                    <div class="input">
+                      <textarea class="xxlarge" name="textarea" rows="10" disabled></textarea>
+                    </div>
+                  </div>
+                </fieldset>
+              </form>
+            </div>
+            <div class="tab-pane" id="template">
+              <form class="form-stacked">
+                <fieldset>
+                  <div class="clearfix">
+                    <div class="input">
+                      <textarea class="xxlarge" name="textarea" rows="10"></textarea>
+                    </div>
+                  </div>
+                </fieldset>
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
-    <footer>
-      <a href="https://twitter.com/share" class="twitter-share-button"
-         data-via="tvaugh0n" data-lang="en" data-hashtags="mametipsum">Tweet</a>
-      <script>
-      //<![CDATA[
-      <!--
-        !function(d, s, id) {
-          var js, fjs = d.getElementsByTagName(s)[0];
-          if (!d.getElementById(id)) {
+      <footer>
+        <a href="https://twitter.com/share" class="twitter-share-button"
+           data-via="tvaugh0n" data-lang="en" data-hashtags="mametipsum">Tweet</a>
+        <script>
+          //<![CDATA[
+        <!--
+            !function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (!d.getElementById(id)) {
             js = d.createElement(s);
             js.id = id;
             js.src = "//platform.twitter.com/widgets.js";
             fjs.parentNode.insertBefore(js, fjs);
-          }
-        }(document, "script", "twitter-wjs");
-      //-->
-      //]]>
-      </script>
-      <iframe src="http://markdotto.github.com/github-buttons/github-btn.html?user=tvaughan&repo=mametipsum&count=true&type=fork"
-              allowtransparency="true" frameborder="0" scrolling="0" width="132px" height="20px"></iframe>   
-    </footer>
+            }
+            }(document, "script", "twitter-wjs");
+            //-->
+        //]]>
+        </script>
+        <iframe src="http://bit.ly/sJF8jL"
+                allowtransparency="true" frameborder="0" scrolling="0" width="132px" height="20px"></iframe>
+      </footer>
     </div>
+    <script src="mametipsum.js"></script>
   </body>
 </html>
