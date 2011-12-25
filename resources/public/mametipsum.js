@@ -1,6 +1,5 @@
-App = Ember.Application.create();
-
-App.blockController = Ember.ArrayController.create();
+MI = Ember.Application.create();
+MI.blocks = Ember.ArrayController.create();
 
 function is_number(string) {
     return (string.length != 0) && !isNaN(string - 0);
@@ -26,11 +25,11 @@ $(document).ready(function() {
         }
 
         var $action = '/mametipsum/' + $("#title").val();
-        $action = $action + '/' + $nwords;
+        $action = $action + '/' + $nblocks + '/' + $nwords;
 
         var $jqxhr = $.get(escape($action),
                            function(data) {
-                               App.blockController.set('content', data);
+                               MI.blocks.set('content', data);
                            }
                           );
 

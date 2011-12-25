@@ -6,12 +6,12 @@
 (defn- get-blobs []
   (remove-directories (file-seq (clojure.java.io/file "db"))))
 
-(defstruct line :string :length)
+(defstruct line :string :nwords)
 
 (defn- parse-blob [strings]
   (doall
-   (map (fn [string length]
-          (struct line string length))
+   (map (fn [string nwords]
+          (struct line string nwords))
         strings (map count strings))))
 
 (defn- add-blob [filename]
@@ -43,12 +43,16 @@
 (defn- iter-script [script nwords]
   (loop [i 0 current (first script) remainder (rest script) lines []]
     (if (< i nwords)
-      (let [total (+ i (current :length))]
-        (recur total (first remainder) (rest remainder) (concat lines [(current :string)])))
+      (let [total (+ i (current :nwords))]
+        (recur total (first remainder) (rest remainder) (conj lines (current :string))))
       lines)))
 
-(defn read-script [scripts title nwords]
-  (iter-script (scripts title) (Integer/parseInt nwords)))
+(defn read-script [scripts title nblocks nwords]
+  (loop [i 0 script (scripts title) blocks []]
+    (if (< i nblocks)
+      (let [total (inc i)]
+        (recur total script (cons (iter-script script nwords) blocks)))
+      blocks)))
 
 (defn update-script [scripts title data]
   ;; TODO:

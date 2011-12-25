@@ -51,24 +51,15 @@
             <div class="active tab-pane" id="ipsum">
               <script type="text/x-handlebars">
                 <div>
-                  {{#with App.blockController}}
-                  {{#if content}}
+                  {{#with MI.blocks}}
+                  {{#each content}}
                   <div class="well">
-                    {{content}}
+                    {{this}}
                   </div>
-                  {{/if}}
+                  {{/each}}
                   {{/with}}
                 </div>
               </script>
-              <form class="form-stacked">
-                <fieldset>
-                  <div class="clearfix">
-                    <div class="input">
-                      <textarea class="xxlarge" name="textarea" rows="10" disabled></textarea>
-                    </div>
-                  </div>
-                </fieldset>
-              </form>
             </div>
             <div class="tab-pane" id="template">
               <form class="form-stacked">
