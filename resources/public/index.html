@@ -34,7 +34,7 @@
               </div>
             </fieldset>
             <div class="clearfix">
-              <a id="generate" href="#" class="btn primary">Generate</a>
+              <a id="generate" class="btn primary" href="#">Generate</a>
             </div>
           </form>
         </div>
@@ -48,20 +48,49 @@
             </li>
           </ul>
           <div class="tab-content">
-            <div class="active tab-pane" id="ipsum">
-              <script type="text/x-handlebars">
-                <div>
-                  {{#with MI.blocks}}
-                  {{#each content}}
-                  <div class="well">
-                    {{this}}
+            <div id="ipsum" class="tab-pane active">
+              <p class="muted">
+                <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
+                        width="14"
+                        height="14"
+                        id="clippy"
+                        class="clippy">
+                  <param name="movie" value="http://assets.github.com/flash/clippy.swf?1310104853?v5"
+                         <param name="allowScriptAccess" value="always" />
+                         <param name="quality" value="high" />
+                         <param name="scale" value="noscale" />
+                         <param name="FlashVars" value="id=copy-to-clipboard&amp;copied=Copied!&amp;copyto=Copy to clipboard">
+                         <param name="bgcolor" value="#FFFFFF">
+                         <param name="wmode" value="opaque">
+                         <embed src="http://assets.github.com/flash/clippy.swf?1310104853?v5"
+                                width="14"
+                                height="14"
+                                name="clippy"
+                                quality="high"
+                                allowScriptAccess="always"
+                                type="application/x-shockwave-flash"
+                                pluginspage="http://www.macromedia.com/go/getflashplayer"
+                                FlashVars="id=copy-to-clipboard&amp;copied=Copied!&amp;copyto=Copy to clipboard"
+                                bgcolor="#FFFFFF"
+                                wmode="opaque"
+                                />
+                </object>
+              </p>
+              <div id="copy-to-clipboard">
+                <script type="text/x-handlebars">
+                  <div>
+                    {{#with MI.blocks}}
+                    {{#each content}}
+                    <div class="well">
+                      {{this}}
+                    </div>
+                    {{/each}}
+                    {{/with}}
                   </div>
-                  {{/each}}
-                  {{/with}}
-                </div>
-              </script>
+                </script>
+              </div>
             </div>
-            <div class="tab-pane" id="template">
+            <div id="template" class="tab-pane">
               <form class="form-stacked">
                 <fieldset>
                   <div class="clearfix">
@@ -76,7 +105,7 @@
         </div>
       </div>
       <footer>
-        <a href="https://twitter.com/share" class="twitter-share-button"
+        <a class="twitter-share-button" href="https://twitter.com/share"
            data-via="tvaugh0n" data-lang="en" data-hashtags="mametipsum">Tweet</a>
         <script>
           //<![CDATA[
