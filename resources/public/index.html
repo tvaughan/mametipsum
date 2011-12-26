@@ -41,14 +41,14 @@
         <div class="span-two-thirds">
           <ul class="tabs" data-tabs="tabs">
             <li class="active">
-              <a href="#ipsum">Ipsum</a>
+              <a href="#mametipsum-tab">Mamet Ipsum</a>
             </li>
             <li>
-              <a href="#template">Template</a>
+              <a href="#template-tab">Template</a>
             </li>
           </ul>
           <div class="tab-content">
-            <div id="ipsum" class="tab-pane active">
+            <div id="mametipsum-tab" class="tab-pane active">
               <p class="muted">
                 <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
                         width="14"
@@ -59,7 +59,7 @@
                          <param name="allowScriptAccess" value="always" />
                          <param name="quality" value="high" />
                          <param name="scale" value="noscale" />
-                         <param name="FlashVars" value="id=copy-to-clipboard&amp;copied=Copied!&amp;copyto=Copy to clipboard">
+                         <param name="FlashVars" value="id=blocks&amp;copied=Copied!&amp;copyto=Copy to clipboard">
                          <param name="bgcolor" value="#FFFFFF">
                          <param name="wmode" value="opaque">
                          <embed src="http://assets.github.com/flash/clippy.swf?1310104853?v5"
@@ -70,32 +70,30 @@
                                 allowScriptAccess="always"
                                 type="application/x-shockwave-flash"
                                 pluginspage="http://www.macromedia.com/go/getflashplayer"
-                                FlashVars="id=copy-to-clipboard&amp;copied=Copied!&amp;copyto=Copy to clipboard"
+                                FlashVars="id=blocks&amp;copied=Copied!&amp;copyto=Copy to clipboard"
                                 bgcolor="#FFFFFF"
                                 wmode="opaque"
                                 />
                 </object>
               </p>
-              <div id="copy-to-clipboard">
-                <script type="text/x-handlebars">
-                  <div>
-                    {{#with MI.blocks}}
-                    {{#each content}}
-                    <div class="well">
-                      {{this}}
-                    </div>
-                    {{/each}}
-                    {{/with}}
-                  </div>
-                </script>
-              </div>
+              <div id="blocks"></div>
             </div>
-            <div id="template" class="tab-pane">
+            <div id="template-tab" class="tab-pane">
               <form class="form-stacked">
                 <fieldset>
                   <div class="clearfix">
                     <div class="input">
-                      <textarea class="xxlarge" name="textarea" rows="10"></textarea>
+                      <textarea id="template" class="xxlarge" name="textarea" rows="10">
+                        {{#each content}}
+                        <div class="well">
+                          {{this}}
+                        </div>
+                        {{/each}}
+                      </textarea>
+
+                      <span class="help-block">
+                        This must be a <a href="http://www.handlebarsjs.com/">Handlebar</a> template.
+                      </span>
                     </div>
                   </div>
                 </fieldset>

@@ -1,5 +1,5 @@
-MI = Ember.Application.create();
-MI.blocks = Ember.ArrayController.create();
+App = Ember.Application.create();
+App.blocks = Ember.ArrayController.create();
 
 function is_number(string) {
     return (string.length != 0) && !isNaN(string - 0);
@@ -29,7 +29,8 @@ $(document).ready(function() {
 
         var $jqxhr = $.get(escape($action),
                            function(data) {
-                               MI.blocks.set('content', data);
+                               var template = Handlebars.compile($("#template").html());
+                               $("#blocks").text('').append(template(App.blocks.set('content', data)));
                            }
                           );
 
