@@ -1,18 +1,22 @@
 (ns mametipsum.views
   (:require
-   [mametipsum.db :as db]))
+   [mametipsum.scripts :as scripts]))
+
+(defn- with-handle [f & args]
+  (let [handle (scripts/get-handle)]
+    (apply f handle args)))
 
 (defn list-titles []
-  (db/list-titles (db/get-scripts)))
+  (with-handle scripts/list-titles))
 
 (defn create-script [title params]
-  (db/create-script (db/get-scripts) title params))
+  (with-handle scripts/create-script title params))
 
 (defn read-script [title nblocks nwords]
-  (db/read-script (db/get-scripts) title nblocks nwords))
+  (with-handle scripts/read-script title nblocks nwords))
 
 (defn update-script [title params]
-  (db/update-script (db/get-scripts) title params))
+  (with-handle scripts/update-script title params))
 
 (defn delete-script [title]
-  (db/delete-script (db/get-scripts) title))
+  (with-handle scripts/delete-script title))
