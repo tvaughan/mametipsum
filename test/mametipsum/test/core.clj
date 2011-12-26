@@ -1,6 +1,7 @@
 (ns mametipsum.test.core
   (:require
-   [mametipsum.db :as db])
+   [mametipsum.db :as db]
+   [mametipsum.scripts :as scripts])
   (:use
    [clojure.test]))
 
@@ -15,6 +16,7 @@
   (some #(= elm %) seq))
 
 (deftest db-testsuite
-  (let [titles (db/list-titles (db/get-scripts))]
-    (is (true? (in? titles "Glengarry Glen Ross")))
-    (is (true? (in? titles "Speed the Plow")))))
+  (let [handle (scripts/get-handle)]
+    (let [titles (scripts/list-titles handle)]
+      (is (true? (in? titles "Glengarry Glen Ross")))
+      (is (true? (in? titles "Speed the Plow"))))))
