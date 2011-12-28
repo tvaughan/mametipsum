@@ -12,7 +12,7 @@ $(document).ready(function() {
         });
     });
 
-    $("#generate").click(function(event) {
+    $('#generate').click(function(event) {
         event.preventDefault();
 
         var $nblocks = $('#nblocks').val();
@@ -25,14 +25,15 @@ $(document).ready(function() {
             $nwords = 0;
         }
 
-        var $action = '/mametipsum/' + $("#title").val();
+        var $action = '/mametipsum/' + $('#title').val();
         $action = $action + '/' + $nblocks + '/' + $nwords;
 
         var $jqxhr = $.get(escape($action),
                            function(data) {
-                               var tmpl = Handlebars.compile($("#template").val());
+                               var tmpl = Handlebars.compile($('#template').val());
                                var html = tmpl(App.blocks.set('content', data));
-                               $("#blocks").text(html).html(html);
+                               $('#blocks').text(html).html(html);
+                               $('#copy-to-clipboard').css('visibility', 'visible');
                            }
                           );
 
