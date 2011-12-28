@@ -9,7 +9,8 @@ $(document).ready(function() {
     $.getJSON('/mametipsum', function(data) {
         $.each(data, function(key, value) {
             $('#title').append(new Option(value));
-        });    });
+        });
+    });
 
     $("#generate").click(function(event) {
         event.preventDefault();
@@ -29,13 +30,14 @@ $(document).ready(function() {
 
         var $jqxhr = $.get(escape($action),
                            function(data) {
-                               var template = Handlebars.compile($("#template").html());
-                               $("#blocks").text('').append(template(App.blocks.set('content', data)));
+                               var tmpl = Handlebars.compile($("#template").val());
+                               var html = tmpl(App.blocks.set('content', data));
+                               $("#blocks").text(html).html(html);
                            }
                           );
 
         $jqxhr.error(function(request, status, error) {
-            alert('FAIL');
+            alert('ERROR: ' + status + ' ' + error);
         });
     });
 });

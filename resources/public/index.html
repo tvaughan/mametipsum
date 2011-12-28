@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Lorem Ipsum is the new &quot;Hello, World!&quot;</title>
+    <title>Mamet Ipsum - Lorem Ipsum is the new &quot;Hello, World!&quot;</title>
     <link rel="stylesheet" href="bootstrap-1.4.1.min.css">
     <script src="jquery-1.6.1.min.js"></script>
     <script src="ember-0.9.3.min.js"></script>
@@ -11,97 +11,104 @@
   <body>
     <style type="text/css">
       body {
-      padding-top: 40px;
+      padding-top: 10px;
+      }
+      #mametipsum {
+      min-height: 480px;
       }
     </style>
     <div class="container">
-      <div class="row">
-        <div class="span-one-third">
-          <form class="form-stacked">
-            <fieldset>
+      <div class="page-header">
+        <h1>Mamet Ipsum <small>Lorem Ipsum is the new &quot;Hello, World!&quot;</small></h1>
+      </div>
+      <section id="mametipsum">
+        <div class="row">
+          <div class="span-one-third">
+            <form class="form-stacked">
+              <fieldset>
+                <div class="clearfix">
+                  <label for="title">Take Words From</label>
+                  <select id="title" name="title">
+                  </select>
+                </div>
+                <div class="clearfix">
+                  <label for="nblocks">Number of Blocks</label>
+                  <input id="nblocks" name="nblocks" type="text" value="3">
+                </div>
+                <div class="clearfix">
+                  <label for="nwords">Words per Block</label>
+                  <input id="nwords" name="nwords" type="text" value="50">
+                </div>
+              </fieldset>
               <div class="clearfix">
-                <label for="title">Take Words From</label>
-                <select id="title" name="title">
-                </select>
+                <a id="generate" class="btn primary" href="#">Generate</a>
               </div>
-              <div class="clearfix">
-                <label for="nblocks">Number of Blocks</label>
-                <input id="nblocks" name="nblocks" placeholder="0" type="text">
+            </form>
+          </div>
+          <div class="span-two-thirds">
+            <ul class="tabs" data-tabs="tabs">
+              <li class="active">
+                <a href="#mametipsum-tab">Mamet Ipsum</a>
+              </li>
+              <li>
+                <a href="#template-tab">Template</a>
+              </li>
+            </ul>
+            <div class="tab-content">
+              <div id="mametipsum-tab" class="tab-pane active">
+                <p class="muted">
+                  <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
+                          width="14"
+                          height="14"
+                          id="clippy"
+                          class="clippy">
+                    <param name="movie" value="http://assets.github.com/flash/clippy.swf?1310104853?v5"
+                           <param name="allowScriptAccess" value="always" />
+                           <param name="quality" value="high" />
+                           <param name="scale" value="noscale" />
+                           <param name="FlashVars" value="id=blocks&amp;copied=Copied!&amp;copyto=Copy to clipboard">
+                           <param name="bgcolor" value="#FFFFFF">
+                           <param name="wmode" value="opaque">
+                           <embed src="http://assets.github.com/flash/clippy.swf?1310104853?v5"
+                                  width="14"
+                                  height="14"
+                                  name="clippy"
+                                  quality="high"
+                                  allowScriptAccess="always"
+                                  type="application/x-shockwave-flash"
+                                  pluginspage="http://www.macromedia.com/go/getflashplayer"
+                                  FlashVars="id=blocks&amp;copied=Copied!&amp;copyto=Copy to clipboard"
+                                  bgcolor="#FFFFFF"
+                                  wmode="opaque"
+                                  />
+                  </object>
+                </p>
+                <div id="blocks"></div>
               </div>
-              <div class="clearfix">
-                <label for="nwords">Words per Block</label>
-                <input id="nwords" name="nwords" placeholder="0" type="text">
-              </div>
-            </fieldset>
-            <div class="clearfix">
-              <a id="generate" class="btn primary" href="#">Generate</a>
-            </div>
-          </form>
-        </div>
-        <div class="span-two-thirds">
-          <ul class="tabs" data-tabs="tabs">
-            <li class="active">
-              <a href="#mametipsum-tab">Mamet Ipsum</a>
-            </li>
-            <li>
-              <a href="#template-tab">Template</a>
-            </li>
-          </ul>
-          <div class="tab-content">
-            <div id="mametipsum-tab" class="tab-pane active">
-              <p class="muted">
-                <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
-                        width="14"
-                        height="14"
-                        id="clippy"
-                        class="clippy">
-                  <param name="movie" value="http://assets.github.com/flash/clippy.swf?1310104853?v5"
-                         <param name="allowScriptAccess" value="always" />
-                         <param name="quality" value="high" />
-                         <param name="scale" value="noscale" />
-                         <param name="FlashVars" value="id=blocks&amp;copied=Copied!&amp;copyto=Copy to clipboard">
-                         <param name="bgcolor" value="#FFFFFF">
-                         <param name="wmode" value="opaque">
-                         <embed src="http://assets.github.com/flash/clippy.swf?1310104853?v5"
-                                width="14"
-                                height="14"
-                                name="clippy"
-                                quality="high"
-                                allowScriptAccess="always"
-                                type="application/x-shockwave-flash"
-                                pluginspage="http://www.macromedia.com/go/getflashplayer"
-                                FlashVars="id=blocks&amp;copied=Copied!&amp;copyto=Copy to clipboard"
-                                bgcolor="#FFFFFF"
-                                wmode="opaque"
-                                />
-                </object>
-              </p>
-              <div id="blocks"></div>
-            </div>
-            <div id="template-tab" class="tab-pane">
-              <form class="form-stacked">
-                <fieldset>
-                  <div class="clearfix">
-                    <div class="input">
-                      <textarea id="template" class="xxlarge" name="textarea" rows="10">
-                        {{#each content}}
-                        <div class="well">
-                          {{this}}
-                        </div>
-                        {{/each}}
-                      </textarea>
-
-                      <span class="help-block">
-                        This must be a <a href="http://www.handlebarsjs.com/">Handlebar</a> template.
-                      </span>
+              <div id="template-tab" class="tab-pane">
+                <form class="form-stacked">
+                  <fieldset>
+                    <div class="clearfix">
+                      <div class="input">
+                        <textarea id="template" class="xxlarge" name="textarea" rows="10">
+                          {{#each content}}
+                          <div class="well">
+                            {{this}}
+                          </div>
+                          {{/each}}
+                        </textarea>
+                        <span class="help-block">
+                          This must be a <a href="http://www.handlebarsjs.com/">Handlebar</a> template.
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                </fieldset>
-              </form>
+                  </fieldset>
+                </form>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
       <footer>
         <a class="twitter-share-button" href="https://twitter.com/share"
            data-via="tvaugh0n" data-lang="en" data-hashtags="mametipsum">Tweet</a>
