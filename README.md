@@ -7,7 +7,7 @@ Written by [Tom Vaughan](http://flavors.me/tvaughan).
 
 ## WHAT
 
-A Lorem Ipsum generator that uses the words of David Mamet.
+A Lorem Ipsum generator that uses the words of [David Mamet](http://en.wikipedia.org/wiki/David_Mamet).
 
 ## WHERE
 
