@@ -19,4 +19,4 @@
   (let [handle (scripts/get-handle)]
     (let [titles (scripts/list-titles handle)]
       (is (true? (in? titles "Glengarry Glen Ross")))
-      (is (true? (in? titles "Speed the Plow"))))))
+      (is (true? (in? titles "The Verdict"))))))
