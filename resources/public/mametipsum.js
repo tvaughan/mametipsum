@@ -12,6 +12,11 @@ $(document).ready(function() {
         });
     });
 
+    $('#blocks').bind('show', function(event, data) {
+        $(this).text(data).html(data);
+        $('#copy-to-clipboard').css('visibility', 'visible');
+    });
+
     $('#generate').click(function(event) {
         event.preventDefault();
 
@@ -30,10 +35,8 @@ $(document).ready(function() {
 
         var $jqxhr = $.get(escape($action),
                            function(data) {
-                               var tmpl = Handlebars.compile($('#template').val());
-                               var html = tmpl(App.blocks.set('content', data));
-                               $('#blocks').text(html).html(html);
-                               $('#copy-to-clipboard').css('visibility', 'visible');
+                               var template = Handlebars.compile($('#template').val());
+                               $('#blocks').trigger('show', [template(App.blocks.set('content', data))]);
                            }
                           );
 
