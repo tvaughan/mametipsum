@@ -30,7 +30,7 @@
       lines)))
 
 (defn read-script [scripts title nblocks nwords]
-  (loop [i 0 script (scripts title) blocks []]
+  (loop [i 0 script (cycle (scripts title)) blocks []]
     (if (< i nblocks)
       (let [total (inc i)]
         (recur total script (cons (iter-script script nwords) blocks)))
