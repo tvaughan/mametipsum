@@ -27,7 +27,7 @@
     (if (< i nwords)
       (let [total (+ i (current :nwords))]
         (recur total (first remainder) (rest remainder) (conj lines (current :string))))
-      lines)))
+      (apply str (interpose " " lines)))))
 
 (defn read-script [scripts title nblocks nwords]
   (loop [i 0 script (cycle (scripts title)) blocks []]
