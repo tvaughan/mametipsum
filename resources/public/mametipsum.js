@@ -6,15 +6,8 @@ function is_number(string) {
 }
 
 $(document).ready(function() {
-    $.getJSON('/mametipsum', function(data) {
-        $.each(data, function(key, value) {
-            $('#title').append(new Option(value));
-        });
-    });
-
     $('#blocks').bind('show', function(event, data) {
         $(this).text(data).html(data);
-        $('#copy-to-clipboard').css('visibility', 'visible');
     });
 
     $('#generate').click(function(event) {
@@ -43,5 +36,12 @@ $(document).ready(function() {
         $jqxhr.error(function(request, status, error) {
             alert('ERROR: ' + status + ' ' + error);
         });
+    });
+
+    $.getJSON('/mametipsum', function(data) {
+        $.each(data, function(key, value) {
+            $('#title').append(new Option(value));
+        });
+        $('#generate').click();
     });
 });

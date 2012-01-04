@@ -43,6 +43,35 @@
               <div class="clearfix">
                 <a id="generate" class="btn primary" href="#">Generate</a>
               </div>
+              <br />
+              <p id="copy-to-clipboard">
+                Copy to clipboard:
+                <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
+                        width="14"
+                        height="14"
+                        id="clippy"
+                        class="clippy">
+                  <param name="movie" value="http://assets.github.com/flash/clippy.swf?1310104853?v5"
+                         <param name="allowScriptAccess" value="always" />
+                         <param name="quality" value="high" />
+                         <param name="scale" value="noscale" />
+                         <param name="FlashVars" value="id=blocks&amp;copied=Copied!&amp;copyto=Copy to clipboard">
+                         <param name="bgcolor" value="#FFFFFF">
+                         <param name="wmode" value="opaque">
+                         <embed src="http://assets.github.com/flash/clippy.swf?1310104853?v5"
+                                width="14"
+                                height="14"
+                                name="clippy"
+                                quality="high"
+                                allowScriptAccess="always"
+                                type="application/x-shockwave-flash"
+                                pluginspage="http://www.macromedia.com/go/getflashplayer"
+                                FlashVars="id=blocks&amp;copied=Copied!&amp;copyto=Copy to clipboard"
+                                bgcolor="#FFFFFF"
+                                wmode="opaque"
+                                />
+                </object>
+              </p>
             </form>
           </div>
           <div class="span-two-thirds">
@@ -56,34 +85,6 @@
             </ul>
             <div class="tab-content">
               <div id="mametipsum-tab" class="tab-pane active">
-                <p id="copy-to-clipboard" style="visibility:hidden">
-                  Copy to clipboard:
-                  <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
-                          width="14"
-                          height="14"
-                          id="clippy"
-                          class="clippy">
-                    <param name="movie" value="http://assets.github.com/flash/clippy.swf?1310104853?v5"
-                           <param name="allowScriptAccess" value="always" />
-                           <param name="quality" value="high" />
-                           <param name="scale" value="noscale" />
-                           <param name="FlashVars" value="id=blocks&amp;copied=Copied!&amp;copyto=Copy to clipboard">
-                           <param name="bgcolor" value="#FFFFFF">
-                           <param name="wmode" value="opaque">
-                           <embed src="http://assets.github.com/flash/clippy.swf?1310104853?v5"
-                                  width="14"
-                                  height="14"
-                                  name="clippy"
-                                  quality="high"
-                                  allowScriptAccess="always"
-                                  type="application/x-shockwave-flash"
-                                  pluginspage="http://www.macromedia.com/go/getflashplayer"
-                                  FlashVars="id=blocks&amp;copied=Copied!&amp;copyto=Copy to clipboard"
-                                  bgcolor="#FFFFFF"
-                                  wmode="opaque"
-                                  />
-                  </object>
-                </p>
                 <div id="blocks"></div>
               </div>
               <div id="template-tab" class="tab-pane">
@@ -146,5 +147,6 @@
       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
-  </script>  </body>
+    </script>
+  </body>
 </html>
