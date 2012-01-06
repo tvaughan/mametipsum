@@ -23,14 +23,15 @@
   (dosync (alter scripts assoc title data)))
 
 (defn- iter-script [script nwords]
-  (loop [i 0 current (first script) remainder (rest script) lines []]
-    (if (< i nwords)
-      (let [total (+ i (current :nwords))]
-        (recur total (first remainder) (rest remainder) (conj lines (current :string))))
-      (apply str (interpose " " lines)))))
+  (let [script (nthnext (cycle script) (rand-int (count script)))]
+    (loop [i 0 current (first script) remainder (rest script) lines []]
+      (if (< i nwords)
+        (let [total (+ i (current :nwords))]
+          (recur total (first remainder) (rest remainder) (conj lines (current :string))))
+        (apply str (interpose " " lines))))))
 
 (defn read-script [scripts title nblocks nwords]
-  (loop [i 0 script (cycle (scripts title)) blocks []]
+  (loop [i 0 script (scripts title) blocks []]
     (if (< i nblocks)
       (let [total (inc i)]
         (recur total script (cons (iter-script script nwords) blocks)))
