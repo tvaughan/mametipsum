@@ -1,5 +1,7 @@
-Mamet Ipsum -- Lorem Ipsum is the new "Hello, World!"
+Mamet Ipsum
 ===
+
+Lorem Ipsum is the new "Hello, World!"
 
 ## WHO
 
@@ -29,8 +31,4 @@ By standing on the shoulders of others. A special thanks to:
  * http://mmcgrana.github.com/2010/08/clojure-rest-api.html
  * http://tryhandlebarsjs.com/
 
-## Continuous Integration
-
-[![build status](https://secure.travis-ci.org/tvaughan/mametipsum.png)](http://travis-ci.org/tvaughan/mametipsum)
-
-Hosted by: [Travis CI](http://travis-ci.org)
+#### See Also: http://tvaughan.github.com/mametipsum
