@@ -31,4 +31,8 @@ By standing on the shoulders of others. A special thanks to:
  * http://mmcgrana.github.com/2010/08/clojure-rest-api.html
  * http://tryhandlebarsjs.com/
 
-#### See Also: http://tvaughan.github.com/mametipsum
+See Also
+---
+
+ * http://mametipsum.herokuapp.com
+ * http://tvaughan.github.com/mametipsum
