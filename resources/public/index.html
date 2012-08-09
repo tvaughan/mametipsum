@@ -3,48 +3,50 @@
   <head>
     <meta charset="UTF-8">
     <title>Mamet Ipsum - Lorem Ipsum is the new &quot;Hello, World!&quot;</title>
-    <link rel="stylesheet" href="bootstrap-1.4.1.min.css">
+    <link rel="stylesheet" href="bootstrap-2.0.4.min.css">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700">
-    <script src="jquery-1.6.1.min.js"></script>
+    <script src="jquery-1.7.2.min.js"></script>
     <script src="ember-0.9.3.min.js"></script>
-    <script src="bootstrap-1.4.1.min.js"></script>
-  </head>
-  <body>
+    <script src="bootstrap-2.0.4.min.js"></script>
     <style type="text/css">
-      body {
-      padding-top: 10px;
-      }
       body, textarea, .topbar input {
       font-family: "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
       }
+      html, body {
+      height: 100%;
+      }
+      .wrapper {
+      min-height: 100%;
+      height: auto !important;
+      height: 100%;
+      margin: 0 auto -80px;
+      }
+      .push {
+      height: 80px;
+      }
     </style>
-    <div class="container">
-      <div class="page-header">
-        <h1><a href="/">Mamet Ipsum</a> <small>Lorem Ipsum is the new &quot;Hello, World!&quot;</small></h1>
-      </div>
-      <section id="mametipsum">
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="container">
+        <div class="page-header">
+          <h1><a href="/">Mamet Ipsum</a> <small>Lorem Ipsum is the new &quot;Hello, World!&quot;</small></h1>
+        </div>
         <div class="row">
-          <div class="span-one-third">
-            <form class="form-stacked">
+          <div class="span4">
+            <form>
               <fieldset>
-                <div class="clearfix">
-                  <label for="title">Take Words From</label>
-                  <select id="title" name="title">
-                  </select>
-                </div>
-                <div class="clearfix">
-                  <label for="nblocks">Number of Blocks</label>
-                  <input id="nblocks" name="nblocks" type="text" value="3">
-                </div>
-                <div class="clearfix">
-                  <label for="nwords">Words per Block</label>
-                  <input id="nwords" name="nwords" type="text" value="100">
-                </div>
+                <label for="title">Take Words From</label>
+                <select id="title" name="title">
+                </select>
+                <label for="nblocks">Number of Blocks</label>
+                <input id="nblocks" name="nblocks" type="text" value="3">
+                <label for="nwords">Words per Block</label>
+                <input id="nwords" name="nwords" type="text" value="100">
+                <br>
+                <a id="generate" class="btn btn-primary" href="#">Generate</a>
               </fieldset>
-              <div class="clearfix">
-                <a id="generate" class="btn primary" href="#">Generate</a>
-              </div>
-              <br />
+              <br>
               <p id="copy-to-clipboard">
                 Copy to clipboard:
                 <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
@@ -53,9 +55,9 @@
                         id="clippy"
                         class="clippy">
                   <param name="movie" value="http://assets.github.com/flash/clippy.swf?1310104853?v5"
-                         <param name="allowScriptAccess" value="always" />
-                         <param name="quality" value="high" />
-                         <param name="scale" value="noscale" />
+                         <param name="allowScriptAccess" value="always">
+                         <param name="quality" value="high">
+                         <param name="scale" value="noscale">
                          <param name="FlashVars" value="id=blocks&amp;copied=Copied!&amp;copyto=Copy to clipboard">
                          <param name="bgcolor" value="#FFFFFF">
                          <param name="wmode" value="opaque">
@@ -75,13 +77,13 @@
               </p>
             </form>
           </div>
-          <div class="span-two-thirds">
-            <ul class="tabs" data-tabs="tabs">
+          <div class="span8">
+            <ul class="nav nav-tabs">
               <li class="active">
-                <a href="#mametipsum-tab">Mamet Ipsum</a>
+                <a data-toggle="tab" href="#mametipsum-tab">Mamet Ipsum</a>
               </li>
               <li>
-                <a href="#template-tab">Template</a>
+                <a data-toggle="tab" href="#template-tab">Template</a>
               </li>
             </ul>
             <div class="tab-content">
@@ -89,21 +91,19 @@
                 <div id="blocks"></div>
               </div>
               <div id="template-tab" class="tab-pane">
-                <form class="form-stacked">
+                <form>
                   <fieldset>
-                    <div class="clearfix">
-                      <div class="input">
-                        <textarea id="template" class="xxlarge" name="textarea" rows="10">
-                          {{#each content}}
-                          <div class="well">
-                            {{this}}
-                          </div>
-                          {{/each}}
-                        </textarea>
-                        <span class="help-block">
-                          This must be a <a href="http://www.handlebarsjs.com/">Handlebar</a> template
-                        </span>
-                      </div>
+                    <div class="input">
+                      <textarea id="template" class="xxlarge" name="textarea" rows="10">
+                        {{#each content}}
+                        <div class="well">
+                          {{this}}
+                        </div>
+                        {{/each}}
+                      </textarea>
+                      <span class="help-block">
+                        This must be a <a href="http://www.handlebarsjs.com/">Handlebar</a> template
+                      </span>
                     </div>
                   </fieldset>
                 </form>
@@ -111,8 +111,12 @@
             </div>
           </div>
         </div>
-      </section>
-      <footer>
+        <div class="push"><!--//--></div>
+      </div>
+    </div>
+    <footer>
+      <div class="container">
+        <hr>
         <a class="twitter-share-button" href="https://twitter.com/share"
            data-via="tvaugh0n" data-lang="en" data-hashtags="mametipsum">Tweet</a>
         <script>
@@ -130,13 +134,11 @@
             //-->
         //]]>
         </script>
-        <iframe src="http://bit.ly/sJF8jL"
-                allowtransparency="true" frameborder="0" scrolling="0" width="132px" height="20px"></iframe>
         <div class="pull-right">
           <a href="http://amzn.to/rXvDgf">Buy David Mamet books and movies on Amazon</a>
         </div>
-      </footer>
-    </div>
+      </div>
+    </footer>
     <script src="mametipsum.js"></script>
     <script type="text/javascript">
       var _gaq = _gaq || [];
