@@ -7,9 +7,10 @@
    [mametipsum.routes :as routes]))
 
 (def app
-  (middleware/api (handler/api routes/main-routes)))
+  (do
+    (db/init)
+    (middleware/api (handler/api routes/main-routes))))
 
 (defn -main []
-  (db/init)
   (let [port (Integer/parseInt (get (System/getenv) "PORT" "8080"))]
     (jetty/run-jetty app {:port port})))
