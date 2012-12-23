@@ -1,5 +1,6 @@
 (ns mametipsum.db
   (:use
+   [clojure.java.io :only (resource)]
    [clojure.string :only (split)]
    [mametipsum.scripts :as scripts]))
 
@@ -10,7 +11,7 @@
   (count (split string #" ")))
 
 (defn- read-blobs []
-  (remove-directories (file-seq (clojure.java.io/file "db"))))
+  (remove-directories (file-seq (clojure.java.io/file (resource "db")))))
 
 (defstruct line :string :nwords)
 
