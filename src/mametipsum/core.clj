@@ -1,6 +1,7 @@
 (ns mametipsum.core
+  (:use
+   [ring.adapter.jetty :only [run-jetty]])
   (:require
-   [ring.adapter.jetty :as jetty]
    [compojure.handler :as handler]
    [mametipsum.db :as db]
    [mametipsum.middleware :as middleware]
@@ -11,6 +12,5 @@
     (db/init)
     (middleware/api (handler/api routes/main-routes))))
 
-(defn -main []
-  (let [port (Integer/parseInt (get (System/getenv) "PORT" "8080"))]
-    (jetty/run-jetty app {:port port})))
+(defn -main [port]
+  (run-jetty app {:port (Integer. port)}))

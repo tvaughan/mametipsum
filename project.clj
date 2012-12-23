@@ -6,4 +6,5 @@
    [compojure "1.1.3"]]
   :plugins
   [[lein-ring "0.7.5"]]
+  :min-lein-version "2.0.0"
   :ring {:handler mametipsum.core/app})
