@@ -1,9 +1,7 @@
 (ns mametipsum.test.core
-  (:require
-   [mametipsum.db :as db]
-   [mametipsum.scripts :as scripts])
-  (:use
-   [clojure.test]))
+  (:require [mametipsum.db :as db]
+            [mametipsum.scripts :as scripts]
+            [clojure.test :refer [deftest is use-fixtures]]))
 
 (defn db-fixture [f]
   (db/init)

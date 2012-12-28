@@ -1,11 +1,9 @@
 (ns mametipsum.core
-  (:use
-   [ring.adapter.jetty :only [run-jetty]])
-  (:require
-   [compojure.handler :as handler]
-   [mametipsum.db :as db]
-   [mametipsum.middleware :as middleware]
-   [mametipsum.routes :as routes]))
+  (:require [compojure.handler :as handler]
+            [compojure.handler :as middleware]
+            [mametipsum.db :as db]
+            [mametipsum.routes :as routes]
+            [ring.adapter.jetty :refer [run-jetty]]))
 
 (def app
   (do

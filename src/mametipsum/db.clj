@@ -1,8 +1,7 @@
 (ns mametipsum.db
-  (:use
-   [clojure.java.io :only (resource)]
-   [clojure.string :only (split)]
-   [mametipsum.scripts :as scripts]))
+  (:require [mametipsum.scripts :as scripts]
+            [clojure.java.io :refer [resource]]
+            [clojure.string :refer [split]]))
 
 (defn- remove-directories [list]
   (remove #(.isDirectory %) list))

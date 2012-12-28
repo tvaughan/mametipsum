@@ -1,6 +1,5 @@
 (ns mametipsum.views
-  (:require
-   [mametipsum.scripts :as scripts]))
+  (:require [mametipsum.scripts :as scripts]))
 
 (defn- with-handle [f & args]
   (let [handle (scripts/get-handle)]

@@ -1,9 +1,7 @@
 (ns mametipsum.routes
-  (:require
-   [compojure.route :as route]
-   [mametipsum.views :as views])
-  (:use
-   [compojure.core]))
+  (:require [compojure.route :as route]
+            [mametipsum.views :as views]
+            [compojure.core :refer [DELETE GET POST PUT defroutes]]))
 
 (defroutes main-routes
   (GET "/mametipsum" []
