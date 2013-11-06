@@ -1,6 +1,6 @@
 (ns mametipsum.scripts)
 
-(def *scripts* (ref {}))
+(def ^:dynamic *scripts* (ref {}))
 
 (defn get-handle []
   *scripts*)
