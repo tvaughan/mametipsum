@@ -1,6 +1,5 @@
 (ns mametipsum.middleware
-  (:require [ring.middleware.format-params :refer [wrap-restful-params]]
-            [ring.middleware.format-response :refer [wrap-restful-response]]))
+  (:require [ring.middleware.format :refer [wrap-restful-format]]))
 
 ;; http://stackoverflow.com/a/7730478/162963
 (defn- wrap-dir-index [handler]
@@ -12,4 +11,4 @@
          request)))))
 
 (defn api [handler]
-  (wrap-restful-params (wrap-restful-response (wrap-dir-index handler))))
+  (wrap-restful-format (wrap-dir-index handler)))
